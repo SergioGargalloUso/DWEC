@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej6</title>
+    
+</head>
+<body>
+    
+    <p>Escribe una edad. Si quieres terminar, escribe "salir" para terminar:</p>
+    <input type="text" id="inputEdad" placeholder="Ingresa tu edad">
+    <button onclick="clasificarEdad()">Enviar</button>
+    
+    
+    <p id="resultado"></p>
+    
+
+    <script>
+        function clasificarEdad() {
+            const input = document.getElementById('inputEdad').value;
+            const resultado = document.getElementById('resultado');
+            
+            if (input.toLowerCase() === "salir") {
+                resultado.innerHTML = "¡Chau Chau!";
+                return;
+            }
+            
+            const edad = parseInt(input);
+
+            if (isNaN(edad)) {
+                resultado.innerHTML = "Por favor! pon un número válido.";
+            } else {
+                if (edad < 12) {
+                    resultado.innerHTML = "Niño";
+                } else if (edad >= 12 && edad <= 17) {
+                    resultado.innerHTML = "Adolescente";
+                } else if (edad >= 18 && edad <= 64) {
+                    resultado.innerHTML = "Adulto";
+                } else if (edad >= 65) {
+                    resultado.innerHTML = "Adulto mayor";
+                }
+            }
+
+            
+            document.getElementById('inputEdad').value = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .resultado {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+   
+    <input type="text" id="texto" placeholder="Introduce un texto">
+    
+    <button onclick="verificarPalindromo()">Verificar</button>
+
+    <div class="resultado" id="resultado"></div>
+
+    <script>
+        // Función para verificar si un texto es palíndromo
+        function verificarPalindromo() {
+            let texto = document.getElementById("texto").value; // Obtener el texto del input
+            let textoProcesado = texto.toLowerCase(); // Poner en minusculas
+
+            // Verificar si el texto es igual al revés
+            let esPalindromo = textoProcesado === textoProcesado.reverse();
+
+            // Mostrar el resultado en la página
+            if (esPalindromo) {
+                document.getElementById("resultado").textContent = `"${texto}" es un palíndromo.`;
+            } else {
+                document.getElementById("resultado").textContent = `"${texto}" no es un palíndromo.`;
+            }
+        }
+    </script>
+
+</body>
+</html>

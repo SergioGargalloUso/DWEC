@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej11</title>
+    
+</head>
+<body>
+    <h1>Dado</h1>
+    
+    <button onclick="lanzarDado()">Lanzar Dado</button>
+
+    <div class="output">
+        <p id="mensaje"></p>
+    </div>
+
+    <script>
+        let contador = 0;
+
+        function generarNumeroAleatorio() {
+            // Genera un número aleatorio entre 1 y 5
+            return Math.floor(Math.random() * 5) + 1;
+        }
+
+        function lanzarDado() {
+            
+            const mensaje = document.getElementById('mensaje');
+
+            
+
+            // Simular el tiempo que tarda en girar el dado (1 segundo)
+            
+                const numero = generarNumeroAleatorio();
+                contador++;
+
+                // Mostrar el número en la consola
+                console.log("Número generado: " + numero);
+
+                // Verificar si el número es par
+                if (numero % 2 === 0) {
+                    mensaje.innerHTML = `He conseguido un número par después de ${contador} veces.`;
+                    console.log(`He conseguido un número par después de ${contador} veces.`);
+                    contador = 0; // Reiniciar contador
+                } else {
+                    mensaje.innerHTML = `Número generado: ${numero}. Sigue intentando...`;
+                }
+            
+        }
+    </script>
+</body>
+</html>

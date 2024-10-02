@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej2</title>
+</head>
+<body>
+
+    
+
+    <script>
+        // Array que almacena los colores y sus códigos hexadecimales
+        const colores = ["Naranja","Lima","Turquesa","Rosa","Rojo","#F39C12","#C0F312","#12F3E5","#F312AF","#F31212" ];
+
+        
+
+        // Mostrar los colores en pantalla con su nombre y código
+        document.write("<h2>Colores disponibles:</h2>");
+        for (let x = 0; x < 5; x++) {
+            document.write(`<p style="color:${colores[x+5]}">${colores[x]}: ${colores[x+5]}</p>`);
+        }
+    </script>
+
+</body>
+</html>

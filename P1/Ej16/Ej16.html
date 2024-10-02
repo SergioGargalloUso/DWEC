@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej16</title>
+    
+</head>
+<body>
+    
+    
+    <div>
+        <button onclick="ingresarNotas()">Ingresar Notas</button>
+    </div>
+    
+    <div class="output" id="resultado"></div>
+
+    <script>
+        function ingresarNotas() {
+            let notas = [];
+            let nota;
+
+            // Ingresar notas hasta que el usuario escriba 'salir'
+            while (true) {
+                nota = prompt("Ingrese una nota (0-100) o escriba 'salir' para terminar:");
+                
+                if (nota.toLowerCase() === 'salir') {
+                    break; // Salida
+                }
+
+                // Convertir la nota a número
+                nota = parseFloat(nota);
+
+                // Validar si la notas está en el rango 0-100
+                if (!isNaN(nota) && nota >= 0 && nota <= 100) {
+                    notas.push(nota); // Agrega la nota al array
+                } else {
+                    alert("Por favor, ingrese un número válido entre 0 y 100.");
+                }
+            }
+
+            // Calcular resultados
+            if (notas.length === 0) {
+                document.getElementById('resultado').innerHTML = "No se ingresaron notas.";
+                return;
+            }
+
+            const cantidad = notas.length;
+            const maxima = Math.max(...notas);
+            const minima = Math.min(...notas);
+            const suma = notas.reduce((a, b) => a + b, 0);
+            const promedio = suma / cantidad;
+
+            // Determinar si aprobado o reprobado
+            if(promedio >= 70){
+                const estado = "Aprobado";
+            }else{
+                const estado = "Suspenso";
+            }
+            
+
+            // Enseña el resultado
+            const resultado = `
+                Cantidad de notas ingresadas: ${cantidad}<br>
+                Nota más alta: ${maxima}<br>
+                Nota más baja: ${minima}<br>
+                Promedio de notas: ${promedio.toFixed(2)}<br>
+                Estado: ${estado}
+            `;
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

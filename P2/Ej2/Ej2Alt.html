@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej2</title>
+</head>
+<body>   
+
+    <button onclick="cambiarColor('naranja')">Naranja</button>
+    <button onclick="cambiarColor('lima')">Lima</button>
+    <button onclick="cambiarColor('turquesa')">Turquesa</button>
+    <button onclick="cambiarColor('rosa')">Rosa</button>
+    <button onclick="cambiarColor('rojo')">Rojo</button>
+
+    <p id="texto">
+        Que color soy?
+    </p>
+
+    <script>
+        // Hazemos un array con los colores y su equivalente en hexadecimal
+        const colores = {
+            naranja: '#F39C12',
+            lima: '#C0F312',
+            turquesa: '#12F3E5',
+            rosa: '#F312AF',
+            rojo: '#F31212'
+        };
+
+        // Función para cambiar colores
+        function cambiarColor(color) {
+            document.getElementById("texto").style.color = colores[color];
+        }
+
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej8 piramide</title>
+    <style>
+        .output {
+            white-space: pre; /* Mantiene los espacios y saltos de línea */
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p>Ingresa un número entero positivo para crear una pirámide:</p>
+    <input type="number" id="inNumero" placeholder="Escribe un número">
+    <button onclick="generarPiramide()">Generar</button>
+    
+    <div class="output" id="piramide"></div>
+
+    <script>
+        function generarPiramide() {
+            const input = document.getElementById('inNumero').value;
+            const piramideDiv = document.getElementById('piramide');
+
+            piramideDiv.innerHTML = '';
+
+            // Comprobaciones del numero antes de hacer la piramide
+            const numero = parseInt(input);
+            if (isNaN(numero) || numero <= 0) {
+                return;
+            }
+
+            // Crea la piramide de asteriscos
+            let piramide = '';
+            for (let x = 1; x <= numero; x++) {
+                piramide += '* '.repeat(x).trim() + '\n'; // Crear cada fila con 'i' asteriscos
+            }
+
+            // ENseña la piramide en la pantalla
+            piramideDiv.textContent = piramide;
+        }
+    </script>
+</body>
+</html>

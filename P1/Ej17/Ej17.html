@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej17</title>
+    
+</head>
+<body>
+    
+    <button onclick="dividirNumeros()">Dividir Números</button>
+    
+    <div class="output" id="resultado"></div>
+
+    <script>
+        function dividirNumeros() {
+            const numeros = [3, 33, 8, 440, 69, -5, 4.5, 14000];
+            const pequenos = [];
+            const grandes = [];
+
+            // Dividir los números en dos series
+            numeros.forEach(num => {
+                if (num <= 10) {
+                    pequenos.push(num); // Agregar a la serie de pequeños
+                } else {
+                    grandes.push(num); // Agregar a la serie de grandes
+                }
+            });
+
+            // Mostrar resultados
+            const resultado = `
+                Pequeños: ${pequenos.join(', ')}<br>
+                Grandes: ${grandes.join(', ')}
+            `;
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

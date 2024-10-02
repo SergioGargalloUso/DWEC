@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej10</title>
+</head>
+<body>
+    
+    <p>Ingresa una fecha para verificar si es el 25 de diciembre:</p>
+    
+    <label for="fecha">Selecciona una fecha:</label>
+    <input type="date" id="fecha" placeholder="Elige una fecha">
+    <button onclick="verificarNavidad()">Comprobar</button>
+    
+    <p id="mensaje"></p>
+    
+
+    <script>
+        function verificarNavidad() {
+            // Obtener el valor de la fecha ingresada
+            const fecha = document.getElementById('fecha').value;
+            const mensaje = document.getElementById('mensaje');
+
+            if (!fecha) {
+                mensaje.innerHTML = "Por favor, ingresa una fecha válida.";
+                return;
+            }
+
+            // Crear un objeto Date a partir de la fecha ingresada
+            const fechaIngresada = new Date(fecha);
+            
+            // Obtener el día y mes de la fecha ingresada
+            const dia = fechaIngresada.getDate();
+            const mes = fechaIngresada.getMonth(); // Los meses en JavaScript son de 0 a 11
+
+            // Verificar si es Navidad (25 de diciembre) El mes tiene que ser 11 por lo dicho anteriormente
+            if (dia === 25 && mes === 11) {
+                mensaje.innerHTML = "¡Es Navidad!";
+            } else {
+                mensaje.innerHTML = "No es Navidad.";
+            }
+        }
+    </script>
+</body>
+</html>

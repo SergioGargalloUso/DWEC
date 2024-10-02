@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej13</title>
+    
+</head>
+<body>
+    
+    <p>Introduce un número para generar la canción:</p>
+
+    <input type="number" id="numLimones" placeholder="Escribe un número">
+    <button onclick="generarCancion()">Generar Canción</button>
+
+    <div class="output">
+        <p id="song"></p>
+    </div>
+
+    <script>
+        function generarCancion() {
+            const numero = parseInt(document.getElementById('numLimones').value);
+            const cancionDiv = document.getElementById('song');
+            cancionDiv.innerHTML = '';  // Limpiar la salida previa
+
+            // Verificar si el número es válido
+            if (isNaN(numero) || numero <= 0) {
+                cancionDiv.innerHTML = 'Por favor, introduce un número válido mayor que 0.';
+                return;
+            }
+
+            // Generar la canción hasta uno menos del numero y asi dejar el ultimo para las mayus
+            let cancion = '';
+            for (let x = 1; i < numero; x++) {
+                if (x === 1) {
+                    cancion += `${x} limón, y medio limón.<br>`;
+                } else {
+                    cancion += `${x} limones, y medio limón.<br>`;
+                }
+            }
+
+            // Última línea en mayúsculas siempre entrara aqui para la ultima y ponfra el valor que sera el ultimo
+            if (numero === 1) {
+                cancion += `¡¡¡Y ${numero} LIMÓN Y MEDIO LIMÓN!!!`;
+            } else {
+                cancion += `¡¡¡Y ${numero} LIMONES Y MEDIO LIMÓN!!!`;
+            }
+
+            // Mostrar la canción en el div
+            cancionDiv.innerHTML = cancion;
+        }
+    </script>
+</body>
+</html>

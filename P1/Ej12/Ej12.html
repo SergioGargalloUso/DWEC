@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej12</title>
+
+</head>
+<body>
+    <h1>Calculadora de Ingreso Total</h1>
+
+    <label for="precioA">Precio del Producto A:</label>
+    <input type="number" id="precioA" placeholder="Ingrese precio A" step="0.01"><br><br>
+
+    <label for="precioB">Precio del Producto B:</label>
+    <input type="number" id="precioB" placeholder="Ingrese precio B" step="0.01"><br><br>
+
+    <label for="cantidadC">Cantidad de Productos C:</label>
+    <input type="number" id="cantidadC" placeholder="Ingrese cantidad C" min="1"><br><br>
+
+    <button onclick="calcularIngresoTotal()">Calcular Ingreso Total</button>
+
+    <div class="output" id="resultado"></div>
+
+    <script>
+        function calcularIngresoTotal() {
+            // Obtener valores de los inputs
+            const precioA = parseFloat(document.getElementById('precioA').value);
+            const precioB = parseFloat(document.getElementById('precioB').value);
+            const cantidadC = parseInt(document.getElementById('cantidadC').value);
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = '';  // Limpiar resultados previos
+
+            // Validar si los precios son iguales
+            if (precioA === precioB) {
+                const ingresoTotal = (precioA + precioB) * cantidadC;
+                resultadoDiv.innerHTML = `Ingreso total: ${ingresoTotal.toFixed(2)}`;
+            } else {
+                resultadoDiv.innerHTML = 'Los precios no son iguales. No se puede calcular el ingreso total.';
+            }
+        }
+    </script>
+</body>
+</html>

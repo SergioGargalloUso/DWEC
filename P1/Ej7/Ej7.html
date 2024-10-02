@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej7</title>
+    
+</head>
+<body>
+    <p>Pon la hora (formato 24h, no minutos):</p>
+    <input type="number" id="inHora" placeholder="Ej. 17 para las 5 PM" min="0" max="24">
+    <button onclick="saludar()">Send</button>
+
+    <p id="saludo"></p>
+
+    <script>
+        function saludar() {
+            const input = document.getElementById('inHora').value;
+            const saludo = document.getElementById('saludo');
+            
+            const hora = parseInt(input);
+            
+            if (isNaN(hora) || hora < 0 || hora > 24) {
+                saludo.innerHTML = "Por favor, ingresa una hora válida entre 0 y 24.";
+                return;
+            }
+
+            if (hora >= 7 && hora < 12) {
+                saludo.innerHTML = "Buenos días";
+            } else if (hora >= 12 && hora < 20) {
+                saludo.innerHTML = "Buenas tardes";
+            } else if (hora >= 20 || hora < 2) {
+                saludo.innerHTML = "Buenas noches";
+            } else if (hora >= 2 && hora < 7) {
+                saludo.innerHTML = "¿Viciando al lol? Uno no duerme hasta que gane un game";
+            }
+        }
+    </script>
+</body>
+</html>
