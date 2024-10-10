@@ -3,51 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ej7</title>
+    <title>Juego Adivina</title>
 </head>
 <body>
 
-    <h1>¡Juego de Ej7!</h1>
-    <div class="container">
-        <p>Adivina los 5 números de la lotería entre 1 y 10.</p>
-        <input type="number" id="numero" placeholder="Introduce un número" min="1" max="10">
-        <button onclick="adivinarNumero()">Adivinar</button>
-        <div class="resultado" id="resultado"></div>
+    <h1>¡Adivina los Números!</h1>
+    <div class="juego">
+        <p>Intenta adivinar 5 números secretos entre 1 y 10.</p>
+        <input type="number" id="inputNumero" placeholder="Escribe tu número" min="1" max="10">
+        <button onclick="verificarNumero()">Probar suerte</button>
+        <div class="mensaje" id="mensajeResultado"></div>
     </div>
 
     <script>
-        // Generar 5 números aleatorios del 1 al 10
-        let numerosLoteria = [];
-        while (numerosLoteria.length < 5) {
-            let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
-            if (!numerosLoteria.includes(numeroAleatorio)) { // Evitar números repetidos
-                numerosLoteria.push(numeroAleatorio);
+        let numerosSecretos = [];
+        while (numerosSecretos.length < 5) {
+            let aleatorio = Math.floor(Math.random() * 10) + 1;
+            if (!numerosSecretos.includes(aleatorio)) {
+                numerosSecretos.push(aleatorio);
             }
         }
-        console.log("Números de la lotería (secreto):", numerosLoteria); // Mostrar en consola para pruebas
+        console.log("Números secretos (para pruebas):", numerosSecretos);
 
-        // Función para verificar si el número adivinado está en la lotería
-        function adivinarNumero() {
-            let numeroUsuario = parseInt(document.getElementById("numero").value);
-            let resultado = document.getElementById("resultado");
+        function verificarNumero() {
+            let numeroUsuario = parseInt(document.getElementById("inputNumero").value);
+            let mensaje = document.getElementById("mensajeResultado");
 
             if (isNaN(numeroUsuario) || numeroUsuario < 1 || numeroUsuario > 10) {
-                resultado.textContent = "Por favor, introduce un número válido entre 1 y 10.";
-                resultado.style.color = "red";
+                mensaje.textContent = "Introduce un número válido entre 1 y 10.";
+                mensaje.style.color = "red";
                 return;
             }
 
-            // Comprobar si el número está en la lotería
-            if (numerosLoteria.includes(numeroUsuario)) {
-                let posicion = numerosLoteria.indexOf(numeroUsuario);
-                resultado.textContent = `¡Correcto! El número ${numeroUsuario} está en la posición ${posicion + 1}.`;
-                resultado.style.color = "green";
+            if (numerosSecretos.includes(numeroUsuario)) {
+                let posicion = numerosSecretos.indexOf(numeroUsuario);
+                mensaje.textContent = `¡Bien hecho! El número ${numeroUsuario} está en la posición ${posicion + 1}.`;
+                mensaje.style.color = "green";
             } else {
-                resultado.textContent = `El número ${numeroUsuario} no está en la lista de la lotería. Sigue intentándolo.`;
-                resultado.style.color = "orange";
+                mensaje.textContent = `El número ${numeroUsuario} no está en la lista secreta. Inténtalo de nuevo.`;
+                mensaje.style.color = "orange";
             }
 
-            document.getElementById("numero").value = ""; // Limpiar el campo de entrada
+            document.getElementById("inputNumero").value = "";
         }
     </script>
 
