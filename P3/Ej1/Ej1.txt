@@ -1,0 +1,17 @@
+En JavaScript, una función es básicamente un bloque de código que hace algo o calcula un valor. Para que sea realmente una "función", tiene que recibir parametros de entrada y devolver informacion/valores relacionado. Si la quieres usar, primero tienes que crearla en el lugar donde la vayas a llamar.
+Su estructura basica es tal que asi:
+function square(number) {
+  return number * number;
+}
+para llamarlas tienes que escirbir su nombre y añadir ():
+square(9);
+Las funciones flecha son una forma más concisa de escribir funciones en JavaScript.
+Este es un ejemplo de ello:
+const suma = (a, b) => a + b;
+Una callback es simplemente una función que pasas como argumento a otra función, para que se ejecute después de que ocurra algo.
+Un ejemplo de ello:
+function procesarDatos(callback) {
+  console.log("Procesando datos...");
+  callback();  
+}
+procesarDatos(() => console.log("Datos procesados!"));

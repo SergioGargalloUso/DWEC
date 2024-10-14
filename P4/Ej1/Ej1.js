@@ -24,8 +24,9 @@ function contPar(){
     }
 
     console.log("Hay" , cont , "pares en este array" , a);
+    return cont;
 }
-contPar(a);
+ let numeroPar= contPar(a);
 
 
 
