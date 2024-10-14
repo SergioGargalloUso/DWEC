@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej2</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid violet;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Función que dibuja una tabla</h1>
+    <div id="tablas-container"></div>
+
+    <script>
+        function crearTabla(filas = 10, columnas = 4) {
+            const tabla = document.createElement('table');
+
+            for (let i = 0; i < filas; i++) {
+                const fila = document.createElement('tr');
+
+                for (let j = 0; j < columnas; j++) {
+                    const celda = document.createElement('td');
+                    celda.textContent = `Fila ${i + 1}, Columna ${j + 1}`;
+                    fila.appendChild(celda);
+                }
+
+                tabla.appendChild(fila);
+            }
+
+            const contenedor = document.getElementById('tablas-container');
+            contenedor.appendChild(tabla);
+            contenedor.appendChild(document.createElement('br'));
+        }
+
+        crearTabla();
+        crearTabla(20, 10);
+
+        for (let i = 0; i < 10; i++) {
+            crearTabla(5, 4);
+        }
+    </script>
+</body>
+</html>
