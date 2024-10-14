@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frecuencia de números aleatorios</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Frecuencia de números aleatorios (1 al 10)</h1>
+    
+    
+    <ul id="lista-frecuencia">
+        
+    </ul>
+    
+   
+    <button onclick="generarNumeros()">Generar números aleatorios</button>
+
+    <script>
+        const TOTAL_NUMEROS = 10000;
+
+        const frecuencia = {
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            5: 0,
+            6: 0,
+            7: 0,
+            8: 0,
+            9: 0,
+            10: 0
+        };
+
+        function generarNumeros() {
+            for (let numero in frecuencia) {
+                frecuencia[numero] = 0;
+            }
+
+            for (let i = 0; i < TOTAL_NUMEROS; i++) {
+                let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+                frecuencia[numeroAleatorio]++;
+            }
+
+            actListaFrecuencias();
+        }
+
+        function actListaFrecuencias() {
+            const listaFrecuencia = document.getElementById('lista-frecuencia');
+            listaFrecuencia.innerHTML = '';  
+
+            for (let numero in frecuencia) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Número ${numero}: ${frecuencia[numero]} veces`;
+                listaFrecuencia.appendChild(listItem);
+            }
+        }
+
+        actListaFrecuencias();
+    </script>
+</body>
+</html>
