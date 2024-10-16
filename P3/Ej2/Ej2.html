@@ -4,21 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ej2</title>
-    <style>
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
 
@@ -45,10 +30,12 @@
         };
 
         function generarNumeros() {
+            // Reiniciar frecuencias
             for (let numero in frecuencia) {
                 frecuencia[numero] = 0;
             }
 
+            // Generar números aleatorios y contar frecuencias
             for (let i = 0; i < TOTAL_NUMEROS; i++) {
                 let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
                 frecuencia[numeroAleatorio]++;
@@ -58,16 +45,18 @@
         }
 
         function actListaFrecuencias() {
-            const listaFrecuencia = document.getElementById('lista-frecuencia');
-            listaFrecuencia.innerHTML = '';  
-
+            // Limpio la lista de frecuencias antes de escribir 
+            document.getElementById('lista-frecuencia').innerHTML = '';  
+            
+            // Creamos la lista de frecuencias utilizando document.write
+            document.write('<ul>');
             for (let numero in frecuencia) {
-                const listItem = document.createElement('li');
-                listItem.textContent = `Número ${numero}: ${frecuencia[numero]} veces`;
-                listaFrecuencia.appendChild(listItem);
+                document.write(`<li>Número ${numero}: ${frecuencia[numero]} veces</li>`);
             }
+            document.write('</ul>');
         }
 
+        
         actListaFrecuencias();
     </script>
 </body>
