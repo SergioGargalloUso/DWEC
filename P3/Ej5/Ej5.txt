@@ -5,7 +5,10 @@ Devuelve el valor numero utf de la letra que pongamos.
 a.indexOf():
 Busca un valor dentro de un String y devuelve la posición primera que este. Si no existe, devuelve -1.
 string.split():
-
+Divide un String en un array utilizando un separador que seleccionemos.
 string.substr():
+Extrae una parte de la cadena desde una posición inicial durante una longitud que seleccionemos.
 string.substring():
+
 s.trim():
+Coge un String y devuelve otro String pero sin espacios delante ni detras.
