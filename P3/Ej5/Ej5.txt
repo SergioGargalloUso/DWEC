@@ -7,8 +7,10 @@ Busca un valor dentro de un String y devuelve la posición primera que este. Si 
 string.split():
 Divide un String en un array utilizando un separador que seleccionemos.
 string.substr():
-Extrae una parte de la cadena desde una posición inicial durante una longitud que seleccionemos.
+Extrae una parte del String desde una posición inicial durante una longitud que seleccionemos.
 string.substring():
-
+Retorna una parte del String entre dos índices que seleccionemos.
 s.trim():
 Coge un String y devuelve otro String pero sin espacios delante ni detras.
+
+La informacion la he sacado de https://www.w3schools.com/jsref/jsref_fromcharcode.asp
