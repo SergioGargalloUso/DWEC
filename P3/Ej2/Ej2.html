@@ -30,13 +30,13 @@
         };
 
         function generarNumeros() {
-            // Reiniciar frecuencias
+            
             for (let numero in frecuencia) {
                 frecuencia[numero] = 0;
             }
 
-            // Generar números aleatorios y contar frecuencias
-            for (let i = 0; i < TOTAL_NUMEROS; i++) {
+            // Generar números aleatorios y contamos la frecuencias
+            for (let x = 0; x < TOTAL_NUMEROS; x++) {
                 let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
                 frecuencia[numeroAleatorio]++;
             }
