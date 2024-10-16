@@ -1,4 +1,4 @@
-// Arrays para almacenar los productos y sus precios
+// Arrays para almacenar los productos y sus precios, he usado arrays
 let productos = [];
 let precios = [];
 
@@ -11,11 +11,11 @@ function agregarProducto() {
     //Aqui compruebo si el nombre ya esta en el inventario con el indexof si no esta lo añado
     const indice = productos.indexOf(nombre);
     if (indice !== -1) {
-        mostrarResultado(`El producto '${nombre}' ya existe en el inventario.`);
+        alert(`El producto '${nombre}' ya existe en el inventario.`);
     } else {
         productos.push(nombre);
         precios.push(precio);
-        mostrarResultado(`Producto '${nombre}' agregado con éxito.`);
+        alert(`Producto '${nombre}' agregado con éxito.`);
     }
 }
 
@@ -28,9 +28,9 @@ function eliminarProducto() {
     if (indice !== -1) {
         productos.splice(indice, 1);
         precios.splice(indice, 1);
-        mostrarResultado(`Producto '${nombre}' eliminado con éxito.`);
+        alert(`Producto '${nombre}' eliminado con éxito.`);
     } else {
-        mostrarResultado(`El producto '${nombre}' no existe en el inventario.`);
+        alert(`El producto '${nombre}' no existe en el inventario.`);
     }
 }
 
@@ -44,9 +44,9 @@ function actualizarPrecio() {
     const indice = productos.indexOf(nombre);
     if (indice !== -1) {
         precios[indice] = nuevoPrecio;
-        mostrarResultado(`Precio de '${nombre}' actualizado a $${nuevoPrecio}.`);
+        alert(`Precio de '${nombre}' actualizado a $${nuevoPrecio}.`);
     } else {
-        mostrarResultado(`El producto '${nombre}' no existe en el inventario.`);
+        alert(`El producto '${nombre}' no existe en el inventario.`);
     }
 }
 
@@ -54,7 +54,7 @@ function actualizarPrecio() {
 function mostrarInventario() {
     // Comprobamos que el inventario esté vacío
     if (productos.length === 0) {
-        mostrarResultado("El inventario está vacío.");
+        alert("El inventario está vacío.");
         return;
     }
 
@@ -73,7 +73,7 @@ function mostrarInventario() {
 
 function mostrarStock() {
     if (productos.length === 0) {
-        mostrarResultado("No hay productos en stock.");
+        alert("No hay productos en stock.");
         return;
     }
 
