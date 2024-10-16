@@ -3,7 +3,7 @@ function generarMatriz(tamano) {
     let matriz = [];
     for (let i = 0; i < tamano; i++) {
         let fila = [];
-        for (let j = 0; j < tamano; j++) {
+        for (let y = 0; y < tamano; y++) {
             // Genera un número aleatorio entre -10 y 10
             fila.push(Math.floor(Math.random() * 21) - 10);
         }
@@ -16,10 +16,10 @@ function generarMatriz(tamano) {
 function sumarMatrices(matriz1, matriz2) {
     const tamano = matriz1.length;
     let matrizResultado = [];
-    for (let i = 0; i < tamano; i++) {
+    for (let x = 0; x < tamano; x++) {
         let fila = [];
-        for (let j = 0; j < tamano; j++) {
-            fila.push(matriz1[i][j] + matriz2[i][j]);
+        for (let y = 0; y < tamano; y++) {
+            fila.push(matriz1[x][y] + matriz2[x][y]);
         }
         matrizResultado.push(fila);
     }
@@ -29,10 +29,10 @@ function sumarMatrices(matriz1, matriz2) {
 // Función que muestra una matriz en una tabla HTML
 function mostrarMatriz(matriz, idElemento) {
     let tablaHTML = "<table>";
-    for (let i = 0; i < matriz.length; i++) {
+    for (let x = 0; x < matriz.length; x++) {
         tablaHTML += "<tr>";
-        for (let j = 0; j < matriz[i].length; j++) {
-            tablaHTML += `<td>${matriz[i][j]}</td>`;
+        for (let y = 0; y < matriz[x].length; y++) {
+            tablaHTML += `<td>${matriz[x][y]}</td>`;
         }
         tablaHTML += "</tr>";
     }

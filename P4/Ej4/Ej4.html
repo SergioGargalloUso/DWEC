@@ -4,24 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Números Primos del 1 al 1000</title>
-    <script src="../Ej3/Ej3.js"></script> <!-- Importamos la función esPrimo del archivo Ej3.js -->
     
-       
+    
 </head>
 <body>
     <h1>Números Primos del 1 al 1000</h1>
 
     <button onclick="mostrarPrimos()">Mostrar Números Primos</button>
-
+    <div id="resultado"></div>
+    
     <script>
-        function mostrarPrimos() {
-            document.write('<div id="primos">');
-            for (let i = 1; i <= 1000; i++) {
-                if (esPrimo(i)) {
-                    document.write('<div class="primo">' + i + '</div>');
+        // Función para determinar si un número es primo
+        function esPrimo(numero) {
+            if (numero <= 1) return false; // Los números <= 1 no son primos
+            for (let x = 2; x <= Math.sqrt(numero); x++) {
+                if (numero % x === 0) {
+                    return false;
                 }
             }
-            document.write('</div>');
+            return true;
+        }
+
+        // Función para mostrar los números primos del 1 al 1000
+        function mostrarPrimos() {
+            let html = '<div id="primos">';
+            // pasas por todos los numeros del 1 al 1000 y verificar si es primo
+            for (let x = 1; x <= 1000; x++) {
+                if (esPrimo(x)) {
+                    html += `<div class="primo">${x}</div>`;  // Si es primo, se añade al HTML
+                }
+            }
+            html += '</div>';
+            
+            // Insertar el HTML generado en el div con id "resultado"
+            document.getElementById("resultado").innerHTML = html;
         }
     </script>
 </body>
