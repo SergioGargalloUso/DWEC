@@ -1,0 +1,11 @@
+String.fromCharCode(cifra):
+Convierte un número o secuencia de números en un Stringde caracteres.
+letra.charCodeAt(letra):
+Devuelve el valor numero utf de la letra que pongamos.
+a.indexOf():
+Busca un valor dentro de un String y devuelve la posición primera que este. Si no existe, devuelve -1.
+string.split():
+
+string.substr():
+string.substring():
+s.trim():
