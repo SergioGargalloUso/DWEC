@@ -18,22 +18,24 @@ function capturarNumero() {
     }
 
     document.getElementById('numero').value = '';
-
+    //vamos poniendo una lista de los numero añadidos
+    var resultadosDiv = document.getElementById('resultados');
+    resultadosDiv.innerHTML += '<p>' + numero + '</p>';
 }
 
 
-
 function mostrarResultados() {
-    const resultadosDiv = document.getElementById('resultados');
-    resultadosDiv.innerHTML = ''; // Limpiamos resultados previos
+    var resultadosDiv = document.getElementById('resultados');
+    resultadosDiv.innerHTML = ''; 
 
-    // Recorrer los números introducidos y calcular el factorial
-    numeros.forEach(numero => {
-        const resultado = `Factorial de ${numero}: ${factorial(numero)}`;
-        const p = document.createElement('p');
-        p.textContent = resultado;
-        resultadosDiv.appendChild(p);
-    });
+    // Recorremos el array de números con una función tradicional
+    for (var i = 0; i < numeros.length; i++) {
+        var numero = numeros[i];
+        var resultado = 'Factorial de ' + numero + ': ' + factorial(numero);
+
+        // Usamos innerHTML para añadir el resultado directamente
+        resultadosDiv.innerHTML += '<p>' + resultado + '</p>';
+    }
 
     // Limpiamos el array de números
     numeros = [];
